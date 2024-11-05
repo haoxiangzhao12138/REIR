@@ -1,0 +1,43 @@
+import torch
+import torch.nn as nn
+import torch.nn.functional as F
+from mmcv.cnn import ConvModule
+from mmdet.registry import MODELS
+from mmengine.model import BaseModule
+from einops import rearrange
+import open_clip
+
+
+
+
+@MODELS.register_module()
+class Openclip(BaseModule):
+    def __init__(self, 
+                 name='ViT-H-14', 
+                 pretrained='/public/haoxiangzhao/weights/CLIP-ViT-H-14-laion2B-s32B-b79K/open_clip_pytorch_model.bin',
+                ):
+        super().__init__()
+        self.clip, self.preprocess_train, self.preprocess_val = open_clip.create_model_and_transforms(name, pretrained=pretrained, force_custom_text=True,)
+        # self.tokenizer = open_clip.get_tokenizer(name)
+        # self.clip.visual = nn.Sequential()
+        self.text_encoder = self.clip.text
+
+
+
+    def forward(self, x):
+        # text = self.tokenizer(x)
+        device = self.text_encoder.attn_mask.device
+
+        # print(x)
+        text = x.to(device=device)
+        features = self.text_encoder(text)
+        for module in self.projection_lyer:
+            features = module(features)
+
+        return features
+        # return tuple(features)
+
+    def freeze_clip(self):
+        self.text_encoder.eval()
+        for param in self.text_encoder.parameters():
+            param.requires_grad = False
