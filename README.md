@@ -1,4 +1,5 @@
 # Referring Expression Instance Retrieval and A Strong End-to-End Baseline
+![REIR](README_ASSETS/teaser_figure.png)
 
 This repository is the official implementation of the paper [Referring Expression Instance Retrieval and A Strong End-to-End Baseline](https://arxiv.org/abs/2506.18246).
 
