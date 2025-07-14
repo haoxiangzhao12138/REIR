@@ -24,8 +24,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
 
-  <title>Academic Project Page</title>
-  <link rel="icon" type="image/x-icon" href="static/images/favicon.ico">
+  <title>Referring Expression Instance Retrieval and A Strong End-to-End Baseline</title>
+  <link rel="icon" type="image/x-icon" href="./static/images/favicon.ico">
   <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
   rel="stylesheet">
 
@@ -43,6 +43,7 @@
   <script src="static/js/bulma-carousel.min.js"></script>
   <script src="static/js/bulma-slider.min.js"></script>
   <script src="static/js/index.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 </head>
 <body>
 
@@ -52,28 +53,40 @@
       <div class="container is-max-desktop">
         <div class="columns is-centered">
           <div class="column has-text-centered">
-            <h1 class="title is-1 publication-title">Academic Project Page</h1>
+            <h1 class="title is-1 publication-title">LamRA: Large Multimodal Model as Your Advanced Retrieval Assistant</h1>
             <div class="is-size-5 publication-authors">
               <!-- Paper authors -->
               <span class="author-block">
-                <a href="FIRST AUTHOR PERSONAL LINK" target="_blank">First Author</a><sup>*</sup>,</span>
+                <a href="https://code-kunkun.github.io/" target="_blank">Xiangzhao Hao</a><sup>1</sup>, </span>
                 <span class="author-block">
-                  <a href="SECOND AUTHOR PERSONAL LINK" target="_blank">Second Author</a><sup>*</sup>,</span>
-                  <span class="author-block">
-                    <a href="THIRD AUTHOR PERSONAL LINK" target="_blank">Third Author</a>
-                  </span>
+                Kuan Zhu<sup>1</sup>, </span>
+                <span class="author-block">
+                Hongyu Guo<sup>1</sup>, </span>
+                <span class="author-block">
+                Xiaolong Jiang<sup>3</sup>, </span>
+                <span class="author-block">
+                Yao Hu<sup>3</sup>, </span>
+                <br>
+                <span class="author-block">
+                <a href="https://sunarker.github.io/" target="_blank">Jiangchao Yao</a><sup>2</sup>, </span>
+                <span class="author-block">
+                <a href="https://cmic.sjtu.edu.cn/wangyanfeng/" target="_blank">Yanfeng Wang</a><sup>1</sup>, </span>
+                <span class="author-block">
+                <a href="https://weidixie.github.io" target="_blank">Weidi Xie</a><sup>1</sup></span>
                   </div>
 
                   <div class="is-size-5 publication-authors">
-                    <span class="author-block">Institution Name<br>Conferance name and year</span>
-                    <span class="eql-cntrb"><small><br><sup>*</sup>Indicates Equal Contribution</small></span>
+                    <span class="author-block"><sup>1</sup>School of Artificial Intelligence, Shanghai Jiao Tong University, China</span><br>
+                    <span class="author-block"><sup>2</sup>CMIC, Shanghai Jiao Tong University, China</span>&nbsp;&nbsp;&nbsp;
+                    <span class="author-block"><sup>3</sup>Xiaohongshu Inc., China</span>
+                    <!-- <span class="eql-cntrb"><small><br><sup>*</sup>Indicates Equal Contribution</small></span> -->
                   </div>
 
                   <div class="column has-text-centered">
                     <div class="publication-links">
                          <!-- Arxiv PDF link -->
                       <span class="link-block">
-                        <a href="https://arxiv.org/pdf/<ARXIV PAPER ID>.pdf" target="_blank"
+                        <a href="https://arxiv.org/pdf/2412.01720" target="_blank"
                         class="external-link button is-normal is-rounded is-dark">
                         <span class="icon">
                           <i class="fas fa-file-pdf"></i>
@@ -83,7 +96,7 @@
                     </span>
 
                     <!-- Supplementary PDF link -->
-                    <span class="link-block">
+                    <!-- <span class="link-block">
                       <a href="static/pdfs/supplementary_material.pdf" target="_blank"
                       class="external-link button is-normal is-rounded is-dark">
                       <span class="icon">
@@ -91,11 +104,11 @@
                       </span>
                       <span>Supplementary</span>
                     </a>
-                  </span>
+                  </span> -->
 
                   <!-- Github link -->
                   <span class="link-block">
-                    <a href="https://github.com/YOUR REPO HERE" target="_blank"
+                    <a href="https://github.com/Code-kunkun/LamRA" target="_blank"
                     class="external-link button is-normal is-rounded is-dark">
                     <span class="icon">
                       <i class="fab fa-github"></i>
@@ -106,7 +119,7 @@
 
                 <!-- ArXiv abstract Link -->
                 <span class="link-block">
-                  <a href="https://arxiv.org/abs/<ARXIV PAPER ID>" target="_blank"
+                  <a href="https://arxiv.org/abs/2412.01720" target="_blank"
                   class="external-link button is-normal is-rounded is-dark">
                   <span class="icon">
                     <i class="ai ai-arxiv"></i>
@@ -122,33 +135,36 @@
   </div>
 </section>
 
-
-<!-- Teaser video-->
-<section class="hero teaser">
-  <div class="container is-max-desktop">
-    <div class="hero-body">
-      <video poster="" id="tree" autoplay controls muted loop height="100%">
-        <!-- Your video here -->
-        <source src="static/videos/banner_video.mp4"
-        type="video/mp4">
-      </video>
-      <h2 class="subtitle has-text-centered">
-        Aliquam vitae elit ullamcorper tellus egestas pellentesque. Ut lacus tellus, maximus vel lectus at, placerat pretium mi. Maecenas dignissim tincidunt vestibulum. Sed consequat hendrerit nisl ut maximus. 
-      </h2>
+<section class="hero is-small">
+  <div class="hero-body">
+    <div class="container">
+      <div class="vertical-image-display">
+        <!-- <div class="columns is-centered has-text-centered"><h2 class="title"></h2></div> -->
+        <div class="image-item">
+          <img src="./static/images/teaser.png" alt="Teaser"/>
+          <h2 class="subtitle">
+          <figcaption>
+            The <strong>LamRA</strong> framework empowers Large Multimodal Models with advanced retrieval and reranking capabilities. (a) LamRA enhances LMMs with universal retrieval and reranking capabilities by inserting lightweight LoRA modules into the LMMs. (b) Examples of varied retrieval tasks demonstrate LamRA's capability to handle diverse retrieval tasks. (c) Performance comparison on the M-BEIR test set shows LamRA's superior performance across a wide range of retrieval tasks. For instance, \( q^t \to c^i \) represents text-to-image retrieval.
+          </figcaption>
+          </h2>
+        </div>
+      </div>
     </div>
   </div>
 </section>
-<!-- End teaser video -->
 
-<!-- Paper abstract -->
-<section class="section hero is-light">
+<section class="section hero ">
   <div class="container is-max-desktop">
     <div class="columns is-centered has-text-centered">
       <div class="column is-four-fifths">
         <h2 class="title is-3">Abstract</h2>
         <div class="content has-text-justified">
           <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin ullamcorper tellus sed ante aliquam tempus. Etiam porttitor urna feugiat nibh elementum, et tempor dolor mattis. Donec accumsan enim augue, a vulputate nisi sodales sit amet. Proin bibendum ex eget mauris cursus euismod nec et nibh. Maecenas ac gravida ante, nec cursus dui. Vivamus purus nibh, placerat ac purus eget, sagittis vestibulum metus. Sed vestibulum bibendum lectus gravida commodo. Pellentesque auctor leo vitae sagittis suscipit.
+            With the rapid advancement of multimodal information retrieval, increasingly complex retrieval tasks have emerged. Existing methods predominately rely on task-specific fine-tuning of vision-language models, often those trained with image-text contrastive learning. 
+            In this paper, we explore the possibility of re-purposing generative Large Multimodal Models (LMMs) for retrieval. This approach enables unifying all retrieval tasks under the same formulation and, more importantly, allows for extrapolation towards unseen retrieval tasks without additional training. Our contributions can be summarised in the following aspects: 
+            (i) We introduce <strong>LamRA</strong>, a versatile framework designed to empower LMMs with sophisticated retrieval and reranking capabilities. 
+            (ii) For retrieval, we adopt a two-stage training strategy comprising language-only pre-training and multimodal instruction tuning to progressively enhance LMM's retrieval performance. 
+            (iii) For reranking, we employ joint training for both pointwise and listwise reranking, offering two distinct ways to further boost the retrieval performance. (iv) Extensive experimental results underscore the efficacy of our method in handling more than ten retrieval tasks, demonstrating robust performance in both supervised and zero-shot settings, including scenarios involving previously unseen retrieval tasks. 
           </p>
         </div>
       </div>
@@ -157,128 +173,78 @@
 </section>
 <!-- End paper abstract -->
 
-
-<!-- Image carousel -->
+<!-- Vertical Image Display -->
 <section class="hero is-small">
   <div class="hero-body">
     <div class="container">
-      <div id="results-carousel" class="carousel results-carousel">
-       <div class="item">
-        <!-- Your image here -->
-        <img src="static/images/carousel1.jpg" alt="MY ALT TEXT"/>
-        <h2 class="subtitle has-text-centered">
-          First image description.
-        </h2>
-      </div>
-      <div class="item">
-        <!-- Your image here -->
-        <img src="static/images/carousel2.jpg" alt="MY ALT TEXT"/>
-        <h2 class="subtitle has-text-centered">
-          Second image description.
-        </h2>
-      </div>
-      <div class="item">
-        <!-- Your image here -->
-        <img src="static/images/carousel3.jpg" alt="MY ALT TEXT"/>
-        <h2 class="subtitle has-text-centered">
-         Third image description.
-       </h2>
-     </div>
-     <div class="item">
-      <!-- Your image here -->
-      <img src="static/images/carousel4.jpg" alt="MY ALT TEXT"/>
-      <h2 class="subtitle has-text-centered">
-        Fourth image description.
-      </h2>
-    </div>
-  </div>
-</div>
-</div>
-</section>
-<!-- End image carousel -->
-
-
-
-
-<!-- Youtube video -->
-<section class="hero is-small is-light">
-  <div class="hero-body">
-    <div class="container">
-      <!-- Paper video. -->
-      <h2 class="title is-3">Video Presentation</h2>
-      <div class="columns is-centered has-text-centered">
-        <div class="column is-four-fifths">
-          
-          <div class="publication-video">
-            <!-- Youtube embed code here -->
-            <iframe src="https://www.youtube.com/embed/JkaxUblCGz0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
-          </div>
+      <div class="vertical-image-display">
+        <div class="columns is-centered has-text-centered"><h2 class="title is-3">Method</h2></div>
+        <div class="image-item">
+          <img src="./static/images/method.png" alt="Overall Structure"/>
+          <h2 class="subtitle">
+            <figcaption>
+              <strong>Overview of the proposed LamRA framework.</strong> LamRA consists of two components: LamRA-Ret and LamRA-Rank. The top section illustrates LamRA-Ret, encompassing both the pre-training and instruction-tuning stages, where contrastive learning is employed to enhance the retrieval capability of LMMs. The pre-training stage aims to improve the feature extraction capabilities through text-to-text retrieval, while the instruction tuning stage adapts the LMMs to various retrieval tasks by fine-tuning on diverse tasks with task-specific instructions. The bottom section depicts the joint training process of LamRA-Rank, which integrates both pointwise and listwise reranking.
+          </figcaption>
+          </h2>
+        </div>
+        <div class="columns is-centered has-text-centered"><h2 class="title is-3">Results</h2></div>
+        <div class="image-item">
+          <img src="./static/images/result.png" alt="Quantitative Results"/>
+          <h2 class="subtitle">
+            <figcaption>
+              <strong>Comparison with state-of-the-arts on M-BEIR test set.</strong> The first row indicates the retrieval task type: \( q^t \)  for text queries, \( q^i \)  for image queries, \( c^t \)  for text candidates, and \( c^i \)  for image candidates. Abbreviations used include VN for VisualNews, F200K for Fashion200K, InfoS for InfoSeek, and FIQ for FashionIQ. Evaluation standards follow UniIR, with FashionIQ and Fashion200K using Recall@10, while all other evaluations employ Recall@5. The best (resp. second-best) numbers are in red (resp. blue). For more detailed quantitative results, please refer to the paper.
+          </figcaption>
+          </h2>
+        </div>
+        <div class="columns is-centered has-text-centered"><h2 class="title is-3">Qualitative Results</h2></div>
+        <div class="image-item">
+          <img src="./static/images/qualitative.png" alt="Qualitative Results"/>
         </div>
       </div>
     </div>
   </div>
 </section>
-<!-- End youtube video -->
+<!-- End Vertical Image Display -->
 
+<style>
+  .subtitle {
+    width: 70%;
+    display: block;
+    margin-left: calc(50% - 35%);
+  }
+  .vertical-image-display .image-item {
+    margin-bottom: 50px; /* Space between items */
+  }
+  .vertical-image-display img {
+    width: 70%; /* Adjust width as needed */
+    height: auto; /* Maintain aspect ratio */
+    /* Centering image */
+    display: block;
+    margin-left: calc(50% - 35%);
+  }
+  figcaption {
+    font-size: 14px; 
+    line-height: 1.5;
+  }
+  .hero.is-small {
+      margin-bottom: -5rem; 
+      padding-bottom: 0;
+    }
+</style>
 
-<!-- Video carousel -->
-<section class="hero is-small">
-  <div class="hero-body">
-    <div class="container">
-      <h2 class="title is-3">Another Carousel</h2>
-      <div id="results-carousel" class="carousel results-carousel">
-        <div class="item item-video1">
-          <video poster="" id="video1" autoplay controls muted loop height="100%">
-            <!-- Your video file here -->
-            <source src="static/videos/carousel1.mp4"
-            type="video/mp4">
-          </video>
-        </div>
-        <div class="item item-video2">
-          <video poster="" id="video2" autoplay controls muted loop height="100%">
-            <!-- Your video file here -->
-            <source src="static/videos/carousel2.mp4"
-            type="video/mp4">
-          </video>
-        </div>
-        <div class="item item-video3">
-          <video poster="" id="video3" autoplay controls muted loop height="100%">\
-            <!-- Your video file here -->
-            <source src="static/videos/carousel3.mp4"
-            type="video/mp4">
-          </video>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-<!-- End video carousel -->
-
-
-
-
-
-
-<!-- Paper poster -->
-<section class="hero is-small is-light">
-  <div class="hero-body">
-    <div class="container">
-      <h2 class="title">Poster</h2>
-
-      <iframe  src="static/pdfs/sample.pdf" width="100%" height="550">
-          </iframe>
-        
-      </div>
-    </div>
-  </section>
-<!--End paper poster -->
 
 
 <!--BibTex citation -->
   <section class="section" id="BibTeX">
     <div class="container is-max-desktop content">
       <h2 class="title">BibTeX</h2>
-      <pre><code>BibTex Code Here</code></pre>
+      <pre><code>@article{liu2024lamra,
+        title={LamRA: Large Multimodal Model as Your Advanced Retrieval Assistant}, 
+        author={Yikun Liu and Pingan Chen and Jiayin Cai and Xiaolong Jiang and Yao Hu and Jiangchao Yao and Yanfeng Wang and Weidi Xie},
+        journal={arXiv preprint arXiv:2412.01720}, 
+        year={2024}
+}
+      </code></pre>
     </div>
 </section>
 <!--End BibTex citation -->
@@ -289,10 +255,9 @@
     <div class="columns is-centered">
       <div class="column is-8">
         <div class="content">
-
           <p>
             This page was built using the <a href="https://github.com/eliahuhorwitz/Academic-project-page-template" target="_blank">Academic Project Page Template</a> which was adopted from the <a href="https://nerfies.github.io" target="_blank">Nerfies</a> project page.
-            You are free to borrow the source code of this website, we just ask that you link back to this page in the footer. <br> This website is licensed under a <a rel="license"  href="http://creativecommons.org/licenses/by-sa/4.0/" target="_blank">Creative
+            You are free to borrow the of this website, we just ask that you link back to this page in the footer. <br> This website is licensed under a <a rel="license"  href="http://creativecommons.org/licenses/by-sa/4.0/" target="_blank">Creative
             Commons Attribution-ShareAlike 4.0 International License</a>.
           </p>
 
