@@ -21,7 +21,7 @@ This repository is the official implementation of the paper [Referring Expressio
 REIRCOCO is a large-scale benchmark specifically designed for instance-level retrieval and localization. It features uniquely aligned referring expressions for over 215,000 object instances in 30,000+ images, totaling 613,000 fine-grained descriptions. The dataset is constructed through a two-stage pipeline: In the generation stage, GPT-4o is prompted with structured inputs—including bounding boxes, category labels, captions, and object context—to generate diverse and referentially unique expressions. In the filtering stage, DeepSeek-R1 verifies expression quality, retaining only unambiguous, grounded, and semantically accurate descriptions. This ensures that each expression matches exactly one object instance, making REIRCOCO highly suitable for both retrieval and localization tasks.
 ![REIRCOCO](README_ASSETS/dataset.png)
 [REIRCOCO is available now!](https://huggingface.co/datasets/haoxiangzhao/REIRCOCO)
-## Results
+## 🎞️ Results
 #### REIR
 ![REIR](README_ASSETS/reir_results.png)
 
