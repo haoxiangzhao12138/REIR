@@ -63,22 +63,21 @@
                 <span class="author-block">
                 Hongyu Guo<sup>1</sup>, </span>
                 <span class="author-block">
-                Xiaolong Jiang<sup>3</sup>, </span>
+                Haiyun Guo<sup>1</sup>, </span>
                 <span class="author-block">
-                Yao Hu<sup>3</sup>, </span>
+                Ning Jiang<sup>2</sup>, </span>
                 <br>
                 <span class="author-block">
-                <a href="https://sunarker.github.io/" target="_blank">Jiangchao Yao</a><sup>2</sup>, </span>
+                Quan Lu<sup>2</sup>, </span>
                 <span class="author-block">
-                <a href="https://cmic.sjtu.edu.cn/wangyanfeng/" target="_blank">Yanfeng Wang</a><sup>1</sup>, </span>
+                Ming Tang<sup>1</sup>, </span>
                 <span class="author-block">
-                <a href="https://weidixie.github.io" target="_blank">Weidi Xie</a><sup>1</sup></span>
+                Jinqiao Wang<sup>1</sup></span>
                   </div>
 
                   <div class="is-size-5 publication-authors">
-                    <span class="author-block"><sup>1</sup>School of Artificial Intelligence, Shanghai Jiao Tong University, China</span><br>
-                    <span class="author-block"><sup>2</sup>CMIC, Shanghai Jiao Tong University, China</span>&nbsp;&nbsp;&nbsp;
-                    <span class="author-block"><sup>3</sup>Xiaohongshu Inc., China</span>
+                    <span class="author-block"><sup>1</sup>Institute of Automation, Chinese Academy of Sciences</span><br>
+                    <span class="author-block"><sup>2</sup>CMashang Consumer Finance Co, Ltd</span>&nbsp;&nbsp;&nbsp;
                     <!-- <span class="eql-cntrb"><small><br><sup>*</sup>Indicates Equal Contribution</small></span> -->
                   </div>
 
@@ -86,7 +85,7 @@
                     <div class="publication-links">
                          <!-- Arxiv PDF link -->
                       <span class="link-block">
-                        <a href="https://arxiv.org/pdf/2412.01720" target="_blank"
+                        <a href="https://arxiv.org/abs/2506.18246" target="_blank"
                         class="external-link button is-normal is-rounded is-dark">
                         <span class="icon">
                           <i class="fas fa-file-pdf"></i>
@@ -95,20 +94,20 @@
                       </a>
                     </span>
 
-                    <!-- Supplementary PDF link -->
-                    <!-- <span class="link-block">
-                      <a href="static/pdfs/supplementary_material.pdf" target="_blank"
+                    <!-- Supplementary dataset link -->
+                    <span class="link-block">
+                      <a href="https://huggingface.co/datasets/haoxiangzhao/REIRCOCO" target="_blank"
                       class="external-link button is-normal is-rounded is-dark">
                       <span class="icon">
-                        <i class="fas fa-file-pdf"></i>
+                        <i class="fas fa-database"></i>
                       </span>
-                      <span>Supplementary</span>
+                      <span>Dataset</span>
                     </a>
-                  </span> -->
+                  </span>
 
                   <!-- Github link -->
                   <span class="link-block">
-                    <a href="https://github.com/Code-kunkun/LamRA" target="_blank"
+                    <a href="https://github.com/haoxiangzhao12138/REIR" target="_blank"
                     class="external-link button is-normal is-rounded is-dark">
                     <span class="icon">
                       <i class="fab fa-github"></i>
@@ -119,7 +118,7 @@
 
                 <!-- ArXiv abstract Link -->
                 <span class="link-block">
-                  <a href="https://arxiv.org/abs/2412.01720" target="_blank"
+                  <a href="https://arxiv.org/abs/2506.18246" target="_blank"
                   class="external-link button is-normal is-rounded is-dark">
                   <span class="icon">
                     <i class="ai ai-arxiv"></i>
@@ -141,10 +140,10 @@
       <div class="vertical-image-display">
         <!-- <div class="columns is-centered has-text-centered"><h2 class="title"></h2></div> -->
         <div class="image-item">
-          <img src="./static/images/teaser.png" alt="Teaser"/>
+          <img src="./static/images/teaser_figure.png" alt="Teaser"/>
           <h2 class="subtitle">
           <figcaption>
-            The <strong>LamRA</strong> framework empowers Large Multimodal Models with advanced retrieval and reranking capabilities. (a) LamRA enhances LMMs with universal retrieval and reranking capabilities by inserting lightweight LoRA modules into the LMMs. (b) Examples of varied retrieval tasks demonstrate LamRA's capability to handle diverse retrieval tasks. (c) Performance comparison on the M-BEIR test set shows LamRA's superior performance across a wide range of retrieval tasks. For instance, \( q^t \to c^i \) represents text-to-image retrieval.
+            Comparison of three vision-language tasks and their datasets. <strong>REIR enables end-to-end instance-level retrieval and localization</strong>, addressing the limitations of Text-Image retrieval and Referring Expression Comprehension.
           </figcaption>
           </h2>
         </div>
@@ -157,15 +156,26 @@
   <div class="container is-max-desktop">
     <div class="columns is-centered has-text-centered">
       <div class="column is-four-fifths">
-        <h2 class="title is-3">Abstract</h2>
+        <h2 class="title is-3">Introduction</h2>
         <div class="content has-text-justified">
-          <p>
-            With the rapid advancement of multimodal information retrieval, increasingly complex retrieval tasks have emerged. Existing methods predominately rely on task-specific fine-tuning of vision-language models, often those trained with image-text contrastive learning. 
-            In this paper, we explore the possibility of re-purposing generative Large Multimodal Models (LMMs) for retrieval. This approach enables unifying all retrieval tasks under the same formulation and, more importantly, allows for extrapolation towards unseen retrieval tasks without additional training. Our contributions can be summarised in the following aspects: 
-            (i) We introduce <strong>LamRA</strong>, a versatile framework designed to empower LMMs with sophisticated retrieval and reranking capabilities. 
-            (ii) For retrieval, we adopt a two-stage training strategy comprising language-only pre-training and multimodal instruction tuning to progressively enhance LMM's retrieval performance. 
-            (iii) For reranking, we employ joint training for both pointwise and listwise reranking, offering two distinct ways to further boost the retrieval performance. (iv) Extensive experimental results underscore the efficacy of our method in handling more than ten retrieval tasks, demonstrating robust performance in both supervised and zero-shot settings, including scenarios involving previously unseen retrieval tasks. 
-          </p>
+            <p>
+                Natural language querying of visual information is fundamental to many real-world applications, motivating a broad range of vision-language tasks. 
+                <strong>Text-Image Retrieval (TIR)</strong> retrieves an image based on an image-level description, while <strong>Referring Expression Comprehension (REC)</strong> localizes a target object in an image using an instance-level description. 
+                However, neither can fully handle real-world demands where users often search for specific object instances across large galleries and expect both the relevant image and the exact object location.
+              </p>
+              
+              <p>
+                We introduce a new task, <strong>Referring Expression Instance Retrieval (REIR)</strong>, which jointly supports instance-level retrieval and localization based on fine-grained referring expressions. 
+                To support this task, we construct <strong>REIRCOCO</strong>, a large-scale benchmark with high-quality expressions generated via prompting vision-language foundation models on MSCOCO and RefCOCO.
+              </p>
+              
+              <p>
+                We also propose <strong>CLARE</strong> (Contrastive Language-Instance Alignment with Relation Experts), a dual-stream model designed for REIR. 
+                It leverages a vision branch for extracting instance-level object features and a language branch enhanced by a <strong>Mix of Relation Experts (MORE)</strong> module. 
+                Retrieval and localization are jointly optimized using a novel <strong>CLIA</strong> contrastive alignment objective. 
+                Experiments show CLARE outperforms strong baselines on REIR and generalizes well to TIR and REC tasks.
+              </p>
+            </div>
         </div>
       </div>
     </div>
@@ -178,28 +188,70 @@
   <div class="hero-body">
     <div class="container">
       <div class="vertical-image-display">
+        <div class="columns is-centered has-text-centered"><h2 class="title is-3">Dataset</h2></div>
+        <div class="image-item">
+          <img src="./static/images/dataset.png" alt="Overall Structure"/>
+          <h2 class="subtitle">
+            <figcaption>
+                <strong>Overview of the REIRCOCO dataset construction pipeline.</strong>
+                REIRCOCO is a large-scale benchmark specifically designed for instance-level retrieval and localization.
+                It features uniquely aligned referring expressions for over 215,000 object instances in 30,000+ images, totaling 613,000 fine-grained descriptions.
+                The dataset is constructed through a two-stage pipeline: 
+                In the <strong>generation stage</strong>, GPT-4o is prompted with structured inputs—including bounding boxes, category labels, captions, and object context—to generate diverse and referentially unique expressions.
+                In the <strong>filtering stage</strong>, DeepSeek-VL verifies expression quality, retaining only unambiguous, grounded, and semantically accurate descriptions.
+                This ensures that each expression matches exactly one object instance, making REIRCOCO highly suitable for both retrieval and localization tasks.
+              </figcaption>
+          </h2>
+        </div>
         <div class="columns is-centered has-text-centered"><h2 class="title is-3">Method</h2></div>
         <div class="image-item">
           <img src="./static/images/method.png" alt="Overall Structure"/>
           <h2 class="subtitle">
             <figcaption>
-              <strong>Overview of the proposed LamRA framework.</strong> LamRA consists of two components: LamRA-Ret and LamRA-Rank. The top section illustrates LamRA-Ret, encompassing both the pre-training and instruction-tuning stages, where contrastive learning is employed to enhance the retrieval capability of LMMs. The pre-training stage aims to improve the feature extraction capabilities through text-to-text retrieval, while the instruction tuning stage adapts the LMMs to various retrieval tasks by fine-tuning on diverse tasks with task-specific instructions. The bottom section depicts the joint training process of LamRA-Rank, which integrates both pointwise and listwise reranking.
-          </figcaption>
+                <strong>Overview of the proposed CLARE framework.</strong> 
+                CLARE (Contrastive Language-Instance Alignment with Relation Experts) is a dual-stream architecture designed for instance-level retrieval and localization.
+                It processes vision and language in parallel while maintaining strong cross-modal alignment.
+                On the visual side, a SigLIP encoder and a Deformable-DETR-based object extractor generate dense, context-aware object features.
+                The language side uses a referring expression encoder enhanced by the Mix of Relation Experts (MORE) module, which injects semantic, spatial, and relational cues.
+                Cross-image instance-level alignment is supervised by the CLIA objective, which extends SigLIP’s contrastive loss for object-level understanding.
+                Focal Loss is further used to enhance discriminative instance selection within each image.
+                Together, these components enable high-precision retrieval and localization across large-scale galleries.
+              </figcaption>
           </h2>
         </div>
         <div class="columns is-centered has-text-centered"><h2 class="title is-3">Results</h2></div>
+        <!-- 图1：REIR任务上的性能比较 -->
         <div class="image-item">
-          <img src="./static/images/result.png" alt="Quantitative Results"/>
-          <h2 class="subtitle">
-            <figcaption>
-              <strong>Comparison with state-of-the-arts on M-BEIR test set.</strong> The first row indicates the retrieval task type: \( q^t \)  for text queries, \( q^i \)  for image queries, \( c^t \)  for text candidates, and \( c^i \)  for image candidates. Abbreviations used include VN for VisualNews, F200K for Fashion200K, InfoS for InfoSeek, and FIQ for FashionIQ. Evaluation standards follow UniIR, with FashionIQ and Fashion200K using Recall@10, while all other evaluations employ Recall@5. The best (resp. second-best) numbers are in red (resp. blue). For more detailed quantitative results, please refer to the paper.
-          </figcaption>
-          </h2>
+            <img src="./static/images/reir_results.png" alt="REIR Performance Comparison" />
+            <h2 class="subtitle">
+                <figcaption>
+                    <strong>CLARE achieves state-of-the-art performance on the REIR benchmark.</strong>
+                    As illustrated in Table 1, CLARE consistently outperforms all two-stage baselines across various IoU thresholds and ranking metrics. 
+                    Unlike conventional pipelines that separate retrieval and localization—leading to error accumulation—CLARE integrates both tasks into a single, unified framework.
+                    This end-to-end design enables more precise cross-modal alignment, improves robustness, and significantly reduces inference cost.
+                  </figcaption>
+            </h2>
+        </div>
+        
+        <!-- 图2：REC任务上的性能比较 -->
+        <div class="image-item">
+            <img src="./static/images/rec_results.png" alt="REC Benchmark Comparison" />
+            <h2 class="subtitle">
+                <figcaption>
+                    <strong>CLARE demonstrates competitive results on REC benchmarks (RefCOCO, RefCOCO+, RefCOCOg).</strong>
+                    Despite its dual-stream architecture, CLARE matches or outperforms strong one-stream and MLLM-based methods. 
+                    Its success stems from a powerful instance-level contrastive alignment strategy, which enables effective semantic and spatial matching across the batch.
+                    CLARE excels on RefCOCO and RefCOCOg, where relational and spatial cues are crucial, and remains robust even on RefCOCO+, where such cues are reduced—showcasing strong generalization ability across diverse REC settings.
+                  </figcaption>
+            </h2>
         </div>
         <div class="columns is-centered has-text-centered"><h2 class="title is-3">Qualitative Results</h2></div>
         <div class="image-item">
-          <img src="./static/images/qualitative.png" alt="Qualitative Results"/>
+          <img src="./static/images/qualitative_result.png" alt="Qualitative Results"/>
         </div>
+        <div class="image-item">
+            <img src="./static/images/qualitative_result2.png" alt="Qualitative Results"/>
+          </div>
       </div>
     </div>
   </div>
@@ -238,12 +290,12 @@
   <section class="section" id="BibTeX">
     <div class="container is-max-desktop content">
       <h2 class="title">BibTeX</h2>
-      <pre><code>@article{liu2024lamra,
-        title={LamRA: Large Multimodal Model as Your Advanced Retrieval Assistant}, 
-        author={Yikun Liu and Pingan Chen and Jiayin Cai and Xiaolong Jiang and Yao Hu and Jiangchao Yao and Yanfeng Wang and Weidi Xie},
-        journal={arXiv preprint arXiv:2412.01720}, 
-        year={2024}
-}
+      <pre><code>@article{hao2025referring,
+        title={Referring Expression Instance Retrieval and A Strong End-to-End Baseline},
+        author={Hao, Xiangzhao and Zhu, Kuan and Guo, Hongyu and Guo, Haiyun and Tang, Ming and Wang, JinQiao},
+        journal={arXiv preprint arXiv:2506.18246},
+        year={2025}
+      }
       </code></pre>
     </div>
 </section>
