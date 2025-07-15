@@ -6,7 +6,7 @@
 This repository is the official implementation of the paper [Referring Expression Instance Retrieval and A Strong End-to-End Baseline](https://arxiv.org/abs/2506.18246).
 
 
-## News
+## 📰 News
 
 - Our work is accepted by **ACMMM2025**.
   
@@ -16,7 +16,7 @@ This repository is the official implementation of the paper [Referring Expressio
 - [ ] **Training Code**: Plan to release the complete training pipeline, including data preprocessing, model architecture, and training scripts.
 - [ ] **Model Weights**: Model checkpoints and pre-trained weights will be released soon.
 
-## REIRCOCO
+## 💾 REIRCOCO
 
 
 
