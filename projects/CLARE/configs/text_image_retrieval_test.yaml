@@ -1,0 +1,51 @@
+# Task-specifc, REC+RES, 8GPUs
+_BASE_: "image_joint_r50.yaml"
+MODEL:
+  WEIGHTS: ""
+  BACKBONE:
+    NAME: "D2SigLIP"
+  LANGUAGE_BACKBONE:
+    NAME: "openclip"
+    LANG_DIM: 768
+    MAX_QUERY_LEN: 64
+    TOKENIZER_TYPE: "timm/ViT-B-16-SigLIP-384"
+    MODEL_TYPE: "ViT-B-16-SigLIP-384"
+    PRETRAINED: "webli"
+  VIT:
+    NAME: "ViT-Base"
+    MODEL_TYPE: "vit_base_patch16_siglip_384"
+    USE_CHECKPOINT: False
+  RETRIEVAL: True
+  OBJECT_QUERY_THRESHOLD: 0.0
+  USE_EARLY_FUSION: False
+  VL_FUSION_USE_CHECKPOINT: False
+  # VISUALIZE: True
+  USE_BIAS: False
+  # USE_BATCH_LOSS: True
+  FREEZE_TEXT_ENCODER: False
+  USE_IOU_BRANCH: False
+
+DATASETS:
+  TRAIN: ("refcoco-unc-train",)
+  TEST: ("text_image_retrieval_new_coco",)
+  # "refcoco-unc-testA", "refcoco-unc-testB", "refcocoplus-unc-val", "refcocoplus-unc-testA", "refcocoplus-unc-testB", "refcocog-google-val", "refcocog-umd-val", "refcocog-umd-test"
+SOLVER:
+  LR_SCHEDULER_NAME: "WarmupCosineLR"
+  BASE_LR: 0.0002 # 2e-4
+  BASE_LR_END: 0.00002
+  WARMUP_FACTOR: 0.01
+  WARMUP_ITERS: 500
+  IMS_PER_BATCH: 32
+  BACKBONE_MULTIPLIER: 0.1
+  WEIGHT_DECAY: 0.05
+#   STEPS: (40000,) # 20 epoch
+  MAX_ITER: 60000 # 24 epoch
+TEST:
+  EVAL_PERIOD: 2000
+DATALOADER:
+  DATASET_RATIO: [1]
+  DATASET_BS: [2]
+  USE_RFS: [False]
+OUTPUT_DIR: /public/haoxiangzhao/reborn/outputs/multi_task_siglip_linear
+
+# python projects/CLARE/train_net.py --num-gpus 8 --config-file projects/CLARE/configs/multi_task_siglip.yaml --resume

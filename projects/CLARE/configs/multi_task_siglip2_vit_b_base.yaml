@@ -1,0 +1,69 @@
+# Task-specifc, REC+RES, 8GPUs
+_BASE_: "image_joint_r50.yaml"
+MODEL:
+  WEIGHTS: ""
+  BACKBONE:
+    NAME: "D2SigLIP"
+  LANGUAGE_BACKBONE:
+    NAME: "openclip"
+    LANG_DIM: 768
+    MAX_QUERY_LEN: 64
+    TOKENIZER_TYPE: "/storage-root/datasets/haoxiangzhao/weights/ViT-B-16-SigLIP2-384" # ViT-L-16-SigLIP-384  ViT-B-16-SigLIP-384
+    MODEL_TYPE: "ViT-B-16-SigLIP2-384" # ViT-L-16-SigLIP-384   ViT-B-16-SigLIP-384
+    PRETRAINED: "/storage-root/datasets/haoxiangzhao/weights/ViT-B-16-SigLIP2-384/open_clip_model.safetensors"
+  VIT:
+    NAME: "ViT-Base" # ViT-Base  ViT-Large
+    MODEL_TYPE: "vit_base_patch16_siglip2_384" #'vit_large_patch16_siglip_384'  vit_base_patch16_siglip_384
+    USE_CHECKPOINT: False
+  # RETRIEVAL: True
+  USE_EARLY_FUSION: False
+  VL_FUSION_USE_CHECKPOINT: False
+  # VISUALIZE: True
+  USE_BIAS: False
+  # USE_BATCH_LOSS: True
+  FREEZE_TEXT_ENCODER: False
+  USE_IOU_BRANCH: False
+  MOE:
+    USE_MOE: False
+    NUM_EXPERTS: 4
+    TOP_K: 2
+    HIDDEN_DIM: 1024
+
+DATASETS:
+  TRAIN: ("coco_2017_train", "refcoco-mixed")
+  TEST: ("coco_2017_val", "refcoco-unc-val")
+  # "refcoco-unc-testA", "refcoco-unc-testB", "refcocoplus-unc-val", "refcocoplus-unc-testA", "refcocoplus-unc-testB", "refcocog-google-val", "refcocog-umd-val", "refcocog-umd-test"
+SOLVER:
+  # LR_SCHEDULER_NAME: "WarmupCosineLR"
+  BASE_LR: 0.0002 # 2e-4
+  # BASE_LR_END: 0.00002
+  WARMUP_FACTOR: 0.01
+  WARMUP_ITERS: 200
+  IMS_PER_BATCH:
+  BACKBONE_MULTIPLIER: 0.1
+  WEIGHT_DECAY: 0.05
+  STEPS: (48000,) # 20 epoch
+  MAX_ITER: 60000 # 24 epoch
+  IMS_PER_BATCH: 32 # batch-per-gpu = 2
+
+# INPUT:
+#   OPENCLIP_INPUT: True
+#   CROP:
+#     ENABLED: True
+#     TYPE: "absolute"
+#     SIZE: (384, 384)
+
+TEST:
+  EVAL_PERIOD: 2000
+DATALOADER:
+  SAMPLER_TRAIN: "MultiDatasetSampler"
+  DATASET_RATIO: [1, 1]
+  USE_DIFF_BS_SIZE: True
+  DATASET_BS: [4, 4]
+  # DATASET_INPUT_SIZE: [640, 320]
+  USE_RFS: [False, False]
+  FILTER_EMPTY_ANNOTATIONS: True
+  NUM_WORKERS: 1
+OUTPUT_DIR: /storage-root/9950backfile/haoxiangzhao/reborn/outputs/base/multi_task_siglip_vit_b_base
+
+# python projects/CLARE/train_net.py --num-gpus 8 --config-file projects/CLARE/configs/multi_task_siglip_vit_b_base.yaml --resume

@@ -1,0 +1,40 @@
+# Task-specifc, REC+RES, 8GPUs
+_BASE_: "image_joint_r50.yaml"
+MODEL:
+  WEIGHTS: ""
+  BACKBONE:
+    NAME: "D2SigLIP"
+  LANGUAGE_BACKBONE:
+    NAME: "openclip"
+    LANG_DIM: 768
+    MAX_QUERY_LEN: 64
+    TOKENIZER_TYPE: "timm/ViT-B-16-SigLIP-384"
+    MODEL_TYPE: "ViT-B-16-SigLIP-384"
+    PRETRAINED: "webli"
+  VIT:
+    NAME: "ViT-Base"
+    MODEL_TYPE: "vit_base_patch16_siglip_384"
+    USE_CHECKPOINT: False
+  # RETRIEVAL: True
+  USE_EARLY_FUSION: False
+  VL_FUSION_USE_CHECKPOINT: False
+  # VISUALIZE: True
+  USE_BIAS: False
+  # USE_BATCH_LOSS: True
+  FREEZE_TEXT_ENCODER: False
+
+DATASETS:
+  TRAIN: ("coco_2017_train",)
+  TEST: ("coco_2017_val",)
+  # "refcoco-unc-testA", "refcoco-unc-testB", "refcocoplus-unc-val", "refcocoplus-unc-testA", "refcocoplus-unc-testB", "refcocog-google-val", "refcocog-umd-val", "refcocog-umd-test"
+SOLVER:
+  IMS_PER_BATCH: 16 # batch-per-gpu = 2
+  STEPS: (40000,) # 20 epoch
+  MAX_ITER: 50000 # 24 epoch
+DATALOADER:
+  DATASET_RATIO: [1]
+  DATASET_BS: [2]
+  USE_RFS: [False]
+OUTPUT_DIR: outputs/multi_task_siglip
+
+# python projects/CLARE/train_net.py --num-gpus 8 --config-file projects/CLARE/configs/single_task_det_siglip.yaml --resume

@@ -1,0 +1,24 @@
+_BASE_: "image_joint_r50.yaml"
+MODEL:
+  WEIGHTS: ""
+  BACKBONE:
+    NAME: "D2ViT"
+  VIT:
+    NAME: "ViT-Base"
+    USE_CHECKPOINT: False
+  RETRIEVAL: False
+  USE_EARLY_FUSION: False
+  USE_BIAS: False
+
+DATASETS:
+  TRAIN: ("coco_2017_train", )
+  TEST: ("coco_2017_val", )
+  # "refcoco-unc-testA", "refcoco-unc-testB", "refcocoplus-unc-val", "refcocoplus-unc-testA", "refcocoplus-unc-testB", "refcocog-google-val", "refcocog-umd-val", "refcocog-umd-test"
+SOLVER:
+  STEPS: (158635,) # 20 epoch
+  MAX_ITER: 190362 # 24 epoch
+DATALOADER:
+  DATASET_RATIO: [1]
+  DATASET_BS: [4]
+  USE_RFS: [False]
+OUTPUT_DIR: outputs/single_task_rec_detect

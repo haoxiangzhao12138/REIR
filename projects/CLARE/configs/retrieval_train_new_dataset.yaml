@@ -1,0 +1,30 @@
+_BASE_: "image_joint_r50.yaml"
+MODEL:
+  WEIGHTS: "weights/R-50.pkl"
+  RETRIEVAL: True
+  USE_EARLY_FUSION: False
+  USE_BIAS: False
+  USE_BATCH_LOSS: True
+  MASK_ON: False
+  VISUALIZE: True
+  DDETRS:
+    BATCH_LOSS_WEIGHT: 2.0
+
+DATASETS:
+  TRAIN: ("refcoco-mixed","retrieval_train")
+  TEST: ("retrieval_val", "refcocog-umd-val")
+  # "refcoco-unc-testA", "refcoco-unc-testB", "refcocoplus-unc-val", "refcocoplus-unc-testA", "refcocoplus-unc-testB", "refcocog-google-val", "refcocog-umd-val", "refcocog-umd-test"
+SOLVER:
+  STEPS: (39658,) # 20 epoch
+  MAX_ITER: 47590 # 24 epoch
+  IMS_PER_BATCH: 64
+  BASE_LR: 0.0002 # 2e-4
+
+DATALOADER:
+  DATASET_RATIO: [4,1]
+  DATASET_BS: [8,8]
+  USE_RFS: [False,False]
+OUTPUT_DIR: outputs/retrieval_train_new_dataset
+
+# python projects/CLARE/train_net.py --num-gpus 8 --config-file projects/CLARE/configs/retrieval_train_new_dataset.yaml --resume
+

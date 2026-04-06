@@ -1,0 +1,67 @@
+# Task-specifc, REC+RES, 8GPUs
+_BASE_: "image_joint_r50.yaml"
+MODEL:
+  WEIGHTS: "" # "/public/haoxiangzhao/reborn/outputs/multi_task_siglip_linear/model_final.pth"
+  BACKBONE:
+    NAME: "D2SigLIP"
+  LANGUAGE_BACKBONE:
+    NAME: "openclip"
+    LANG_DIM: 768
+    MAX_QUERY_LEN: 64
+    TOKENIZER_TYPE: "/storage-root/datasets/haoxiangzhao/weights/ViT-B-16-SigLIP-384" # ViT-L-16-SigLIP-384  ViT-B-16-SigLIP-384
+    MODEL_TYPE: "ViT-B-16-SigLIP-384" # ViT-L-16-SigLIP-384   ViT-B-16-SigLIP-384
+    PRETRAINED: "/storage-root/datasets/haoxiangzhao/weights/ViT-B-16-SigLIP-384/open_clip_model.safetensors"
+  VIT:
+    NAME: "ViT-Base" # ViT-Base  ViT-Large
+    MODEL_TYPE: "vit_base_patch16_siglip_384" #'vit_large_patch16_siglip_384'  vit_base_patch16_siglip_384
+    USE_CHECKPOINT: False
+  RETRIEVAL: False
+  USE_EARLY_FUSION: False
+  VL_FUSION_USE_CHECKPOINT: False
+  # VISUALIZE: True
+  USE_BIAS: False
+  USE_BATCH_LOSS: False
+  USE_CLIP_POOL_HEAD: False
+  FREEZE_TEXT_ENCODER: False
+  USE_IOU_BRANCH: False
+  MOE:
+    USE_MOE: False
+
+
+DATASETS:
+  TRAIN: ("rercoco_train", "refcoco-mixed") # refcoco-mixed retrieval_train
+  TEST: ("rercoco_val","refcoco-unc-val")
+  # "refcoco-unc-testA", "refcoco-unc-testB", "refcocoplus-unc-val", "refcocoplus-unc-testA", "refcocoplus-unc-testB", "refcocog-google-val", "refcocog-umd-val", "refcocog-umd-test"
+SOLVER:
+  # LR_SCHEDULER_NAME: "WarmupCosineLR"
+  BASE_LR: 0.0002 # 2e-4
+  # BASE_LR_END: 0.00002
+  WARMUP_FACTOR: 0.01
+  WARMUP_ITERS: 200
+  IMS_PER_BATCH: 32
+  BACKBONE_MULTIPLIER: 0.1
+  WEIGHT_DECAY: 0.05
+  STEPS: (40000,50000) # 20 epoch
+  MAX_ITER: 60000 # 24 epoch
+  CHECKPOINT_PERIOD: 2000
+# INPUT:
+#   OPENCLIP_INPUT: True
+#   CROP:
+#     ENABLED: True
+#     TYPE: "absolute"
+#     SIZE: (384, 384)
+
+TEST:
+  EVAL_PERIOD: 2000
+DATALOADER:
+  SAMPLER_TRAIN: "MultiDatasetSampler"
+  DATASET_RATIO: [1, 1]
+  USE_DIFF_BS_SIZE: True
+  DATASET_BS: [4, 4]
+  # DATASET_INPUT_SIZE: [640, 320]
+  USE_RFS: [False, False]
+  FILTER_EMPTY_ANNOTATIONS: True
+  NUM_WORKERS: 1
+OUTPUT_DIR: /storage-root/9950backfile/haoxiangzhao/reborn/outputs/multi_datasets_rec_siglip
+
+# python projects/CLARE/train_net.py --num-gpus 8 --config-file projects/CLARE/configs/multi_datasets_rec_siglip.yaml --resume
