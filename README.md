@@ -1,5 +1,5 @@
 # Referring Expression Instance Retrieval and A Strong End-to-End Baseline
-[🏡 Project Page](https://haoxiangzhao12138.github.io/REIR/) |  [📄 Paper](https://arxiv.org/abs/2506.18246) | [🤗 REIRCOCO Dataset](https://huggingface.co/datasets/haoxiangzhao/REIRCOCO) | 🤗 CLARE Model(coming soon)
+[🏡 Project Page](https://haoxiangzhao12138.github.io/REIR/) |  [📄 Paper](https://arxiv.org/abs/2506.18246) | [🤗 REIRCOCO Dataset](https://huggingface.co/datasets/haoxiangzhao/REIRCOCO) 
 
 ![REIR](README_ASSETS/teaser_figure.png)
 
@@ -9,13 +9,7 @@ This repository is the official implementation of the paper [Referring Expressio
 ## 📰 News
 
 - Our work is accepted by **ACMMM2025**.
-- **Training code released!**
 
-## 📝 TODO
-
-- [x] **Dataset Released**: We have publicly released our [REIR benchmark dataset](https://huggingface.co/datasets/haoxiangzhao/REIRCOCO).
-- [x] **Training Code**: Complete training pipeline, including data preprocessing, model architecture, and training scripts.
-- [ ] **Model Weights**: Model checkpoints and pre-trained weights will be released soon.
 
 ## 💾 REIRCOCO
 
